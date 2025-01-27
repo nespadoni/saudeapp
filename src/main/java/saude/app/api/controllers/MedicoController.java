@@ -1,8 +1,7 @@
-package saude.app.api.controller;
+package saude.app.api.controllers;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,10 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import saude.app.api.dto.DadosAtualizacaoMedico;
 import saude.app.api.dto.DadosCadastroMedico;
 import saude.app.api.dto.DadosListagemMedico;
-import saude.app.api.model.Medico;
-import saude.app.api.repository.MedicoRepository;
-
-import java.util.List;
+import saude.app.api.models.Medico;
+import saude.app.api.repositories.MedicoRepository;
 
 @RequestMapping("/medicos")
 @RestController
