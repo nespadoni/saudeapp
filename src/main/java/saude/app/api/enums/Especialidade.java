@@ -1,4 +1,4 @@
-package saude.app.api.models;
+package saude.app.api.enums;
 
 public enum Especialidade {
     CARDIOLOGIA,

@@ -25,7 +25,9 @@ public class Paciente {
     private String telefone;
     private Boolean ativo;
 
-    public Paciente(@Valid DadosCadastroPaciente dados) {
+    public Paciente(Long id) {}
+
+    public Paciente(DadosCadastroPaciente dados) {
         this.ativo = true;
         this.nome = dados.nome();
         this.cpf = dados.cpf();

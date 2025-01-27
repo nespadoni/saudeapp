@@ -3,7 +3,7 @@ package saude.app.api.dto.medico;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import saude.app.api.models.Especialidade;
+import saude.app.api.enums.Especialidade;
 
 public record DadosCadastroMedico(@NotBlank(message = "O nome do médico é obrigatório") String nome,
 

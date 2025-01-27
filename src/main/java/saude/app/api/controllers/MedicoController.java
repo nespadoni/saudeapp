@@ -19,7 +19,7 @@ import saude.app.api.repositories.MedicoRepository;
 public class MedicoController {
 
     @Autowired
-    private MedicoRepository repository;
+    private final MedicoRepository repository;
 
     public MedicoController(MedicoRepository repository) {
         this.repository = repository;

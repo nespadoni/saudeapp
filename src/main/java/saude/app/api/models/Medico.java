@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import saude.app.api.dto.medico.DadosAtualizacaoMedico;
 import saude.app.api.dto.medico.DadosCadastroMedico;
+import saude.app.api.enums.Especialidade;
 
 @Getter
 @AllArgsConstructor
@@ -28,7 +29,9 @@ public class Medico {
 
     private Boolean ativo;
 
-    public Medico(@Valid DadosCadastroMedico dados) {
+    public Medico(Long id) {}
+
+    public Medico(DadosCadastroMedico dados) {
         this.ativo = true;
         this.nome = dados.nome();
         this.crm = dados.crm();
