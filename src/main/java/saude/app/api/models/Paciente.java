@@ -6,41 +6,38 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import saude.app.api.dto.medico.DadosAtualizacaoMedico;
-import saude.app.api.dto.medico.DadosCadastroMedico;
+import saude.app.api.dto.paciente.DadosAtualizacaoPaciente;
+import saude.app.api.dto.paciente.DadosCadastroPaciente;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Entity(name = "Medico")
-@Table(name = "medicos")
-public class Medico {
+@Entity(name = "Paciente")
+@Table(name = "pacientes")
+public class Paciente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String crm;
-
-    @Enumerated(EnumType.STRING)
-    private Especialidade especialidade;
-
+    private String cpf;
+    private String telefone;
     private Boolean ativo;
 
-    public Medico(@Valid DadosCadastroMedico dados) {
+    public Paciente(@Valid DadosCadastroPaciente dados) {
         this.ativo = true;
         this.nome = dados.nome();
-        this.crm = dados.crm();
-        this.especialidade = dados.especialidade();
+        this.cpf = dados.cpf();
+        this.telefone = dados.telefone();
     }
 
-    public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
+    public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {
         if (dados.nome() != null) {
             this.nome = dados.nome();
         }
-        if (dados.crm() != null) {
-            this.crm = dados.crm();
+        if (dados.cpf() != null) {
+            this.cpf = dados.cpf();
         }
     }
 
@@ -48,5 +45,3 @@ public class Medico {
         this.ativo = false;
     }
 }
-
-

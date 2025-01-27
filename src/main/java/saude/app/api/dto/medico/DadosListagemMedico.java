@@ -1,4 +1,4 @@
-package saude.app.api.dto;
+package saude.app.api.dto.medico;
 
 import saude.app.api.models.Especialidade;
 import saude.app.api.models.Medico;

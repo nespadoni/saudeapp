@@ -8,9 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import saude.app.api.dto.DadosAtualizacaoMedico;
-import saude.app.api.dto.DadosCadastroMedico;
-import saude.app.api.dto.DadosListagemMedico;
+import saude.app.api.dto.medico.DadosAtualizacaoMedico;
+import saude.app.api.dto.medico.DadosCadastroMedico;
+import saude.app.api.dto.medico.DadosListagemMedico;
 import saude.app.api.models.Medico;
 import saude.app.api.repositories.MedicoRepository;
 
