@@ -11,15 +11,23 @@ import org.springframework.web.bind.annotation.*;
 import saude.app.api.dto.consulta.DadosAtualizacaoConsulta;
 import saude.app.api.dto.consulta.DadosCadastroConsulta;
 import saude.app.api.dto.consulta.DadosListagemConsulta;
-import saude.app.api.dto.medico.DadosAtualizacaoMedico;
-import saude.app.api.dto.medico.DadosCadastroMedico;
 import saude.app.api.models.Consulta;
-import saude.app.api.models.Medico;
 import saude.app.api.repositories.ConsultaRepository;
 
 @RequestMapping("/consultas")
 @RestController
 public class ConsultaController {
+
+    @GetMapping("/filtrar")
+    public Page<DadosListagemConsulta> listarPorDataHora(
+            @RequestParam(required = false) String dataHora,
+            @RequestParam(required = false) String local,
+            @RequestParam(required = false) Long medicoId,
+            @RequestParam(required = false) Long pacienteId,
+            @PageableDefault(size = 10, sort = {"dataHora"}) Pageable paginacao) {
+        return repository.findByDataHora(dataHora, paginacao)
+                .map(DadosListagemConsulta::new);
+    }
 
     @Autowired
     private final ConsultaRepository repository;
@@ -62,3 +70,4 @@ public class ConsultaController {
         repository.getReferenceById(id).inativar();
     }
 }
+

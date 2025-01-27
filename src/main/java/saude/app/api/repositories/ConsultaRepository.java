@@ -9,5 +9,8 @@ import java.util.Optional;
 
 public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
     Page<Consulta> findByAtivoTrue(Pageable paginacao);
+
     Page<Consulta> findByAtivoFalse(Pageable paginacao);
+
+    Page<Consulta> findByDataHora(String dataHora, Pageable paginacao);
 }
